@@ -3,9 +3,11 @@ import { createContext, useCallback, useContext, useMemo, useState, type ReactNo
 
 import { WHATSAPP_NUMBERS, enquiryMessage, waLink } from "@/lib/contact";
 
+type OpenOptions = { item?: string | undefined; message?: string | undefined };
+
 type Ctx = {
   /** Open the number chooser. Pass an item name or a full custom message. */
-  openWhatsApp: (options?: { item?: string; message?: string }) => void;
+  openWhatsApp: (options?: OpenOptions) => void;
 };
 
 const WhatsAppContext = createContext<Ctx>({ openWhatsApp: () => {} });
