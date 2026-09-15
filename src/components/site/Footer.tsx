@@ -73,16 +73,12 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href={waLink("Hi ScrapXpert India, I want to sell scrap.")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-whatsapp"
-                >
+                <WhatsAppButton className="inline-flex items-center gap-2 hover:text-whatsapp">
                   <MessageCircle className="size-4 text-whatsapp" /> WhatsApp Enquiry
-                </a>
+                </WhatsAppButton>
               </li>
               <li className="text-muted-foreground">Mon–Sat, 9:00 AM – 8:00 PM</li>
+              <li className="text-muted-foreground">Small &amp; large quantities welcome</li>
             </ul>
           </div>
 
