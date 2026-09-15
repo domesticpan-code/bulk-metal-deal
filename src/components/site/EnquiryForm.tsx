@@ -1,13 +1,15 @@
 import { ImagePlus, MessageCircle, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-import { waLink } from "@/lib/contact";
+import { useWhatsApp } from "@/components/site/WhatsAppChooser";
 
 const CATEGORY_OPTIONS = [
   "Metal Scrap",
+  "AC & Cooling Scrap",
+  "Batteries",
   "Electrical Scrap",
   "Electronic Scrap / E-Waste",
-  "Motor & Industrial Scrap",
+  "Motor & Machinery Scrap",
   "Automobile Scrap",
   "Mixed / Full Factory Lot",
 ];
@@ -15,14 +17,15 @@ const CATEGORY_OPTIONS = [
 type Photo = { id: string; url: string; name: string };
 
 export function EnquiryForm() {
+  const { openWhatsApp } = useWhatsApp();
   const [photos, setPhotos] = useState<Photo[]>([]);
   const fileRef = useRef<HTMLInputElement>(null);
   const [form, setForm] = useState({
     name: "",
-    company: "",
     phone: "",
-    city: "",
     category: CATEGORY_OPTIONS[0],
+    item: "",
+    city: "",
     quantity: "",
     details: "",
   });
@@ -54,14 +57,14 @@ export function EnquiryForm() {
   }
 
   const message = [
-    "Scrap Enquiry — ScrapXpert India",
+    "Hello ScrapXpert India, I want to sell scrap. Please share your best price.",
     `Name: ${form.name || "-"}`,
-    `Company: ${form.company || "-"}`,
     `Phone: ${form.phone || "-"}`,
-    `Location: ${form.city || "-"}`,
     `Scrap Type: ${form.category}`,
-    `Approx Quantity: ${form.quantity || "-"}`,
-    `Details: ${form.details || "-"}`,
+    `Item: ${form.item || form.category}`,
+    `Location: ${form.city || "______"}`,
+    `Quantity: ${form.quantity || "______"}`,
+    `Message: ${form.details || "-"}`,
     photos.length
       ? `Photos ready to share: ${photos.length} (I will attach them in this chat)`
       : "",
@@ -83,13 +86,13 @@ export function EnquiryForm() {
             </p>
             <h2 className="mt-3 text-3xl sm:text-4xl">Tell Us What You Have</h2>
             <p className="mt-4 text-muted-foreground">
-              Fill in your material, quantity and location, add photos so our buyer can
-              grade the lot, then send it straight to our WhatsApp desk. Quotes usually
-              come back the same working day.
+              Fill in your material and location, add photos so our buyer can grade the lot,
+              then send it straight to our WhatsApp desk. Quantity is optional — small &amp;
+              large quantities are welcome and bulk quantities are also accepted.
             </p>
             <p className="mt-4 text-sm text-muted-foreground">
-              Photos stay on your device — attach them in the WhatsApp chat that opens so
-              our buyer sees exactly what you are selling.
+              Photos stay on your device — attach them in the WhatsApp chat that opens so our
+              buyer sees exactly what you are selling.
             </p>
           </header>
 
@@ -97,7 +100,7 @@ export function EnquiryForm() {
             className="plate rounded-sm border border-border p-6"
             onSubmit={(e) => {
               e.preventDefault();
-              window.open(waLink(message), "_blank", "noopener,noreferrer");
+              openWhatsApp({ message });
             }}
           >
             <div className="grid gap-4 sm:grid-cols-2">
@@ -115,20 +118,8 @@ export function EnquiryForm() {
                 />
               </div>
               <div>
-                <label className={label} htmlFor="company">
-                  Company / Firm
-                </label>
-                <input
-                  id="company"
-                  className={`mt-1.5 ${field}`}
-                  placeholder="Optional"
-                  value={form.company}
-                  onChange={(e) => setForm({ ...form, company: e.target.value })}
-                />
-              </div>
-              <div>
                 <label className={label} htmlFor="phone">
-                  Mobile Number
+                  Phone Number
                 </label>
                 <input
                   id="phone"
@@ -138,19 +129,6 @@ export function EnquiryForm() {
                   placeholder="10-digit number"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                />
-              </div>
-              <div>
-                <label className={label} htmlFor="city">
-                  City / Site Location
-                </label>
-                <input
-                  id="city"
-                  required
-                  className={`mt-1.5 ${field}`}
-                  placeholder="Noida, UP"
-                  value={form.city}
-                  onChange={(e) => setForm({ ...form, city: e.target.value })}
                 />
               </div>
               <div>
@@ -171,13 +149,38 @@ export function EnquiryForm() {
                 </select>
               </div>
               <div>
+                <label className={label} htmlFor="item">
+                  Item Details
+                </label>
+                <input
+                  id="item"
+                  className={`mt-1.5 ${field}`}
+                  placeholder="e.g. Split AC outdoor units, copper cable"
+                  value={form.item}
+                  onChange={(e) => setForm({ ...form, item: e.target.value })}
+                />
+              </div>
+              <div>
+                <label className={label} htmlFor="city">
+                  Location
+                </label>
+                <input
+                  id="city"
+                  required
+                  className={`mt-1.5 ${field}`}
+                  placeholder="Noida, UP"
+                  value={form.city}
+                  onChange={(e) => setForm({ ...form, city: e.target.value })}
+                />
+              </div>
+              <div>
                 <label className={label} htmlFor="quantity">
-                  Approx Quantity
+                  Quantity <span className="normal-case tracking-normal">(optional)</span>
                 </label>
                 <input
                   id="quantity"
                   className={`mt-1.5 ${field}`}
-                  placeholder="e.g. 4 tonne / 20 motors"
+                  placeholder="Optional — any quantity accepted"
                   value={form.quantity}
                   onChange={(e) => setForm({ ...form, quantity: e.target.value })}
                 />
@@ -186,13 +189,13 @@ export function EnquiryForm() {
 
             <div className="mt-4">
               <label className={label} htmlFor="details">
-                Material Details
+                Message
               </label>
               <textarea
                 id="details"
                 rows={3}
                 className={`mt-1.5 ${field}`}
-                placeholder="Grade, condition, whether dismantling is needed, pickup timeline…"
+                placeholder="Condition, whether dismantling is needed, pickup timeline…"
                 value={form.details}
                 onChange={(e) => setForm({ ...form, details: e.target.value })}
               />
@@ -219,7 +222,10 @@ export function EnquiryForm() {
               {photos.length > 0 && (
                 <ul className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-6">
                   {photos.map((p) => (
-                    <li key={p.id} className="relative overflow-hidden rounded-sm border border-border">
+                    <li
+                      key={p.id}
+                      className="relative overflow-hidden rounded-sm border border-border"
+                    >
                       <img src={p.url} alt={p.name} className="aspect-square w-full object-cover" />
                       <button
                         type="button"
@@ -235,12 +241,21 @@ export function EnquiryForm() {
               )}
             </div>
 
-            <button
-              type="submit"
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-whatsapp px-6 py-3.5 text-sm font-bold uppercase tracking-widest text-whatsapp-foreground transition-opacity hover:opacity-90"
-            >
-              <MessageCircle className="size-4" /> Send Details on WhatsApp
-            </button>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center gap-2 rounded-sm bg-primary px-6 py-3.5 text-sm font-bold uppercase tracking-widest text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                Get Best Price
+              </button>
+              <button
+                type="button"
+                onClick={() => openWhatsApp({ message })}
+                className="inline-flex items-center justify-center gap-2 rounded-sm bg-whatsapp px-6 py-3.5 text-sm font-bold uppercase tracking-widest text-whatsapp-foreground transition-opacity hover:opacity-90"
+              >
+                <MessageCircle className="size-4" /> Send Photos on WhatsApp
+              </button>
+            </div>
           </form>
         </div>
       </div>
