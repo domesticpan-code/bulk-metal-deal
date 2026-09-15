@@ -1,7 +1,8 @@
 import { ArrowRight, BadgeIndianRupee, MessageCircle, Scale, Truck, Clock } from "lucide-react";
 
 import heroYard from "@/assets/hero-yard.jpg";
-import { telPrimary, waLink, PHONE_PRIMARY_DISPLAY } from "@/lib/contact";
+import { WhatsAppButton } from "@/components/site/WhatsAppChooser";
+import { telPrimary, PHONE_PRIMARY_DISPLAY } from "@/lib/contact";
 
 const BADGES = [
   { icon: Scale, label: "Certified Weighment" },

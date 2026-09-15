@@ -1,7 +1,8 @@
 import { Phone, MessageCircle, Menu, X, Recycle } from "lucide-react";
 import { useState } from "react";
 
-import { PHONE_PRIMARY_DISPLAY, telPrimary, waLink } from "@/lib/contact";
+import { WhatsAppButton } from "@/components/site/WhatsAppChooser";
+import { PHONE_PRIMARY_DISPLAY, telPrimary } from "@/lib/contact";
 
 const NAV = [
   { label: "Scrap We Buy", href: "#categories" },
@@ -53,17 +54,10 @@ export function Header() {
             <Phone className="size-4" />
             {PHONE_PRIMARY_DISPLAY}
           </a>
-          <a
-            href={waLink(
-              "Hi ScrapXpert India, I want to sell my scrap. Please share your best rates.",
-            )}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 rounded-sm bg-whatsapp px-3 py-2 text-sm font-bold uppercase tracking-wide text-whatsapp-foreground transition-opacity hover:opacity-90"
-          >
+          <WhatsAppButton className="inline-flex shrink-0 items-center gap-2 rounded-sm bg-whatsapp px-3 py-2 text-sm font-bold uppercase tracking-wide text-whatsapp-foreground transition-opacity hover:opacity-90">
             <MessageCircle className="size-4" />
             <span className="hidden sm:inline">WhatsApp</span>
-          </a>
+          </WhatsAppButton>
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
