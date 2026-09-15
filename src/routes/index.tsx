@@ -5,17 +5,20 @@ import { Bulk } from "@/components/site/Bulk";
 import { Categories } from "@/components/site/Categories";
 import { Contact } from "@/components/site/Contact";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
+import { FinalCTA } from "@/components/site/FinalCTA";
 import { FloatingCTAs } from "@/components/site/FloatingCTAs";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { Process } from "@/components/site/Process";
+import { Testimonials } from "@/components/site/Testimonials";
+import { WhatsAppProvider } from "@/components/site/WhatsAppChooser";
 import { WhyUs } from "@/components/site/WhyUs";
 import { PHONE_PRIMARY, PHONE_SECONDARY } from "@/lib/contact";
 
-const TITLE = "ScrapXpert India — Bulk Scrap Buyers at Competitive Prices";
+const TITLE = "ScrapXpert India — Scrap Buyers at Competitive Prices";
 const DESCRIPTION =
-  "ScrapXpert India buys metal, electrical, electronic, motor and automobile scrap in bulk across Delhi NCR and pan-India. Free pickup, certified weighment, instant payment.";
+  "ScrapXpert India buys metal, AC, battery, electrical, electronic, motor and automobile scrap across Delhi NCR and pan-India. Small & large quantities welcome, free pickup, instant payment.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -52,20 +55,24 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main>
-        <Hero />
-        <Categories />
-        <Bulk />
-        <Process />
-        <EnquiryForm />
-        <WhyUs />
-        <About />
-        <Contact />
-      </main>
-      <Footer />
-      <FloatingCTAs />
-    </div>
+    <WhatsAppProvider>
+      <div className="min-h-screen bg-background">
+        <Header />
+        <main>
+          <Hero />
+          <Categories />
+          <Bulk />
+          <Process />
+          <EnquiryForm />
+          <WhyUs />
+          <Testimonials />
+          <About />
+          <Contact />
+          <FinalCTA />
+        </main>
+        <Footer />
+        <FloatingCTAs />
+      </div>
+    </WhatsAppProvider>
   );
 }

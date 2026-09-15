@@ -46,6 +46,7 @@ export function Footer() {
                 ["How It Works", "#process"],
                 ["Send Scrap Details", "#enquiry"],
                 ["Why Choose Us", "#why"],
+                ["Customer Feedback", "#feedback"],
                 ["About Us", "#about"],
               ].map(([label, href]) => (
                 <li key={href}>
