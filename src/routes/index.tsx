@@ -1,24 +1,71 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { About } from "@/components/site/About";
+import { Bulk } from "@/components/site/Bulk";
+import { Categories } from "@/components/site/Categories";
+import { Contact } from "@/components/site/Contact";
+import { EnquiryForm } from "@/components/site/EnquiryForm";
+import { FloatingCTAs } from "@/components/site/FloatingCTAs";
+import { Footer } from "@/components/site/Footer";
+import { Header } from "@/components/site/Header";
+import { Hero } from "@/components/site/Hero";
+import { Process } from "@/components/site/Process";
+import { WhyUs } from "@/components/site/WhyUs";
+import { PHONE_PRIMARY, PHONE_SECONDARY } from "@/lib/contact";
+
+const TITLE = "ScrapXpert India — Bulk Scrap Buyers at Competitive Prices";
+const DESCRIPTION =
+  "ScrapXpert India buys metal, electrical, electronic, motor and automobile scrap in bulk across Delhi NCR and pan-India. Free pickup, certified weighment, instant payment.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "ScrapXpert India",
+          description: DESCRIPTION,
+          slogan: "We Buy Scrap. We Offer Competitive Prices. We Deal in Bulk.",
+          telephone: [PHONE_PRIMARY, PHONE_SECONDARY],
+          areaServed: ["Delhi NCR", "Noida", "Ghaziabad", "Gurugram", "Faridabad", "India"],
+          openingHours: "Mo-Sa 09:00-20:00",
+        }),
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main>
+        <Hero />
+        <Categories />
+        <Bulk />
+        <Process />
+        <EnquiryForm />
+        <WhyUs />
+        <About />
+        <Contact />
+      </main>
+      <Footer />
+      <FloatingCTAs />
     </div>
   );
 }
