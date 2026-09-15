@@ -19,7 +19,7 @@ export function useWhatsApp() {
 export function WhatsAppProvider({ children }: { children: ReactNode }) {
   const [message, setMessage] = useState<string | null>(null);
 
-  const openWhatsApp = useCallback((options?: { item?: string; message?: string }) => {
+  const openWhatsApp = useCallback((options?: OpenOptions) => {
     setMessage(options?.message ?? enquiryMessage(options?.item));
   }, []);
 
@@ -91,9 +91,9 @@ export function WhatsAppButton({
   className,
   children,
 }: {
-  item?: string;
-  message?: string;
-  className?: string;
+  item?: string | undefined;
+  message?: string | undefined;
+  className?: string | undefined;
   children: ReactNode;
 }) {
   const { openWhatsApp } = useWhatsApp();
