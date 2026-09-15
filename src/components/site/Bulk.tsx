@@ -1,6 +1,7 @@
 import { Factory, Warehouse, Building2, Truck, MessageCircle, Phone } from "lucide-react";
 
-import { telSecondary, PHONE_SECONDARY_DISPLAY, waLink } from "@/lib/contact";
+import { WhatsAppButton } from "@/components/site/WhatsAppChooser";
+import { telSecondary, PHONE_SECONDARY_DISPLAY } from "@/lib/contact";
 
 const SEGMENTS = [
   {
@@ -34,15 +35,17 @@ export function Bulk() {
             <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-primary">
               Bulk Scrap Purchasing
             </p>
-            <h2 className="mt-3 text-3xl sm:text-4xl">Minimum 500 Kg. No Upper Limit.</h2>
+            <h2 className="mt-3 text-3xl sm:text-4xl">
+              Small &amp; Large Quantities Welcome. No Upper Limit.
+            </h2>
             <p className="mt-4 text-muted-foreground">
-              Bulk is our core business. We quote lot-wise against live LME and local mandi
-              rates, arrange our own labour, cutting and closed-body transport, and settle
-              by RTGS or cash on weighment — GST invoicing included.
+              Bulk quantities also accepted. We quote lot-wise against live LME and local
+              mandi rates, arrange our own labour, cutting and closed-body transport, and
+              settle by RTGS or cash on weighment — GST invoicing included.
             </p>
             <dl className="mt-8 grid grid-cols-2 gap-4">
               {[
-                ["500 Kg+", "Minimum bulk lot"],
+                ["Any Qty", "Small & large lots"],
                 ["24 Hrs", "Quote turnaround"],
                 ["Pan-India", "Pickup coverage"],
                 ["100%", "Weighment transparency"],
@@ -56,16 +59,12 @@ export function Bulk() {
               ))}
             </dl>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href={waLink(
-                  "Hi ScrapXpert India, I have a bulk scrap lot to sell. Quantity: , Material: , Location: ",
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
+              <WhatsAppButton
+                item="Bulk scrap lot"
                 className="inline-flex items-center gap-2 rounded-sm bg-whatsapp px-5 py-3 text-sm font-bold uppercase tracking-widest text-whatsapp-foreground transition-opacity hover:opacity-90"
               >
                 <MessageCircle className="size-4" /> Send Bulk Details
-              </a>
+              </WhatsAppButton>
               <a
                 href={telSecondary}
                 className="inline-flex items-center gap-2 rounded-sm border border-border px-5 py-3 text-sm font-bold uppercase tracking-widest transition-colors hover:border-primary hover:text-primary"

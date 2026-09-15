@@ -1,7 +1,8 @@
 import { ArrowRight, BadgeIndianRupee, MessageCircle, Scale, Truck, Clock } from "lucide-react";
 
 import heroYard from "@/assets/hero-yard.jpg";
-import { telPrimary, waLink, PHONE_PRIMARY_DISPLAY } from "@/lib/contact";
+import { WhatsAppButton } from "@/components/site/WhatsAppChooser";
+import { telPrimary, PHONE_PRIMARY_DISPLAY } from "@/lib/contact";
 
 const BADGES = [
   { icon: Scale, label: "Certified Weighment" },
@@ -36,18 +37,14 @@ export function Hero() {
           plants, builders, workshops and corporates — metal, electrical, electronic, motor
           and automobile scrap lifted at transparent, market-linked rates.
         </p>
+        <p className="mt-4 text-sm font-bold uppercase tracking-widest text-primary">
+          Small &amp; large quantities welcome · Bulk quantities also accepted
+        </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <a
-            href={waLink(
-              "Hi ScrapXpert India, I want the best rate for my bulk scrap. Details: ",
-            )}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-sm bg-primary px-6 py-3.5 text-sm font-bold uppercase tracking-widest text-primary-foreground transition-opacity hover:opacity-90"
-          >
+          <WhatsAppButton className="inline-flex items-center gap-2 rounded-sm bg-primary px-6 py-3.5 text-sm font-bold uppercase tracking-widest text-primary-foreground transition-opacity hover:opacity-90">
             Get Best Rate on WhatsApp <ArrowRight className="size-4" />
-          </a>
+          </WhatsAppButton>
           <a
             href={telPrimary}
             className="inline-flex items-center gap-2 rounded-sm border border-border bg-card/70 px-6 py-3.5 text-sm font-bold uppercase tracking-widest transition-colors hover:border-primary hover:text-primary"
