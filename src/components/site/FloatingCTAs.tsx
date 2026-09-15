@@ -22,7 +22,6 @@ export function FloatingCTAs() {
       {/* Desktop floating WhatsApp button */}
       <WhatsAppButton
         className="fixed bottom-6 right-6 z-50 hidden items-center gap-2 rounded-sm bg-whatsapp px-5 py-4 text-sm font-bold uppercase tracking-widest text-whatsapp-foreground shadow-2xl transition-opacity hover:opacity-90 md:inline-flex"
-        aria-label="Open WhatsApp number chooser"
       >
         <MessageCircle className="size-5" /> WhatsApp Us
       </WhatsAppButton>
