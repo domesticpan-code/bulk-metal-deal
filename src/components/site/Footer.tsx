@@ -1,17 +1,18 @@
 import { Recycle, Phone, MessageCircle } from "lucide-react";
 
+import { WhatsAppButton } from "@/components/site/WhatsAppChooser";
 import {
   PHONE_PRIMARY_DISPLAY,
   PHONE_SECONDARY_DISPLAY,
   telPrimary,
   telSecondary,
-  waLink,
 } from "@/lib/contact";
 
 const KEYWORDS = [
   "Scrap buyers in Delhi NCR",
   "Industrial scrap dealers Noida",
-  "Bulk metal scrap buyers Ghaziabad",
+  "AC scrap buyers Delhi NCR",
+  "Old battery buyers Noida",
   "Copper & brass scrap dealer Gurugram",
   "E-waste buyers Faridabad",
   "Electric motor scrap buyer UP",
