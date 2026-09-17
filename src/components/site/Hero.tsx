@@ -34,8 +34,8 @@ export function Hero() {
         </h1>
         <p className="mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
           ScrapXpert India purchases industrial, factory and commercial scrap directly from
-          plants, builders, workshops and corporates — metal, electrical, electronic, motor
-          and automobile scrap lifted at transparent, market-linked rates.
+          plants, builders, workshops and corporates — metal, electrical, electronic, motor,
+          vehicle parts and batteries lifted at transparent, market-linked rates.
         </p>
         <p className="mt-4 text-sm font-bold uppercase tracking-widest text-primary">
           Small &amp; large quantities welcome · Bulk quantities also accepted

@@ -13,7 +13,7 @@ const PILLARS = [
   {
     icon: Boxes,
     title: "Small & Large Quantities Welcome",
-    text: "No minimum order. A couple of batteries or a full plant lot — both get a proper rate.",
+    text: "A couple of batteries or a full plant lot — small, large and bulk quantities get a proper rate.",
   },
   {
     icon: Truck,

@@ -10,7 +10,7 @@ const CATEGORY_OPTIONS = [
   "Electrical Scrap",
   "Electronic Scrap / E-Waste",
   "Motor & Machinery Scrap",
-  "Automobile Scrap",
+  "Vehicle Parts & Batteries",
   "Mixed / Full Factory Lot",
 ];
 
