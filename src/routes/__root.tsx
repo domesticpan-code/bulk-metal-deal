@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "ScrapXpert India buys industrial, electrical, electronic and automobile scrap in bulk at competitive prices.",
+          "ScrapXpert India buys industrial, electrical, electronic, metal, AC and battery scrap at competitive prices.",
       },
       { property: "og:site_name", content: "ScrapXpert India" },
       { property: "og:type", content: "website" },

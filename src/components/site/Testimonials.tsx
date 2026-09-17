@@ -11,7 +11,7 @@ const REVIEWS = [
     name: "Sunita Aggarwal",
     location: "Rohini, Delhi",
     stars: 5,
-    text: "I only had two old inverter batteries and a ceiling fan. They still came, weighed everything in front of me and paid immediately. No minimum quantity fuss.",
+    text: "I had two old inverter batteries and a ceiling fan. They came, weighed everything in front of me and paid immediately. The process was smooth.",
   },
   {
     name: "Mohammed Irfan",
@@ -29,7 +29,7 @@ const REVIEWS = [
     name: "Deepak Yadav",
     location: "Faridabad, Haryana",
     stars: 5,
-    text: "Sold two scrap car engines and assorted automobile metal. Loading labour came with them, so our workshop was cleared in a single visit.",
+    text: "Sold used car spare parts and workshop metal. Loading labour came with them, so our workshop was cleared in a single visit.",
   },
   {
     name: "Anita Verma",

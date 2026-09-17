@@ -34,7 +34,7 @@ export function Footer() {
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
               B2B scrap procurement — we buy scrap, offer competitive prices and deal in
-              bulk across metal, electrical, electronic, industrial and automobile scrap.
+              bulk across metal, electrical, electronic, industrial, vehicle parts and batteries.
             </p>
           </div>
 

@@ -18,7 +18,7 @@ import { PHONE_PRIMARY, PHONE_SECONDARY } from "@/lib/contact";
 
 const TITLE = "ScrapXpert India — Scrap Buyers at Competitive Prices";
 const DESCRIPTION =
-  "ScrapXpert India buys metal, AC, battery, electrical, electronic, motor and automobile scrap across Delhi NCR and pan-India. Small & large quantities welcome, free pickup, instant payment.";
+  "ScrapXpert India buys metal, AC, battery, electrical, electronic, motor and vehicle parts across Delhi NCR and pan-India. Small & large quantities welcome, free pickup, instant payment.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
