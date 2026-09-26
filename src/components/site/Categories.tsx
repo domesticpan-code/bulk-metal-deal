@@ -40,8 +40,6 @@ import aluminiumWire from "@/assets/m-aluminium-wire.jpg";
 import brass from "@/assets/m-brass.jpg";
 import copper from "@/assets/m-copper.jpg";
 import copperWire from "@/assets/m-copper-wire.jpg";
-import iron from "@/assets/m-iron.jpg";
-import mixed from "@/assets/m-mixed.jpg";
 import silver from "@/assets/m-silver.jpg";
 import stainless from "@/assets/m-stainless.jpg";
 import { WhatsAppButton } from "@/components/site/WhatsAppChooser";
@@ -60,8 +58,6 @@ const GROUPS: Group[] = [
       { name: "Brass Scrap", image: brass, alt: "Brass fittings and components sorted as scrap" },
       { name: "Silver Scrap", image: silver, alt: "Silver-coloured electrical contacts and metal scrap" },
       { name: "Stainless Steel Scrap", image: stainless, alt: "Stainless steel industrial offcuts" },
-      { name: "Iron Scrap", image: iron, alt: "Heavy iron scrap pieces in a workshop" },
-      { name: "Mixed Metals", image: mixed, alt: "Professionally sorted mixed metal scrap" },
     ],
   },
   {
